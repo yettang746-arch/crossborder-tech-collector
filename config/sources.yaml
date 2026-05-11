@@ -86,20 +86,14 @@ rss_sources:
     category: "cross-border-tech"
     filter_mode: "all"
 
-  # === 中文跨境媒体 ===
-  - name: "36kr"
-    url: "https://36kr.com/feed"
-    category: "cross-border"
-    filter_mode: "keyword"
-    keywords:
-      - 出海
-      - 跨境
-      - 电商
-      - 海外
-      - 全球化
-      - 独立站
+  # === 跨境电商媒体 ===
+  - name: "Modern Retail"
+    url: "https://modernretail.co/feed/"
+    category: "cross-border-tech"
+    filter_mode: "all"
 
   # === 预留（暂不可用，待二期爬虫）===
+  # 36kr: VPS 海外节点访问国内 SSL 证书链有问题，需装国内 CA bundle
   # Shopify Engineering: RSS 404
   # Stripe Blog: RSS 404
   # 亿邦动力: RSS 重定向
