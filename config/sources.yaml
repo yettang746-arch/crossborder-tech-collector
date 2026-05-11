@@ -2,11 +2,22 @@
 # 每个源独立配置，采集失败不影响其他源
 
 rss_sources:
-  # === 保留源（带关键词过滤）===
+  # === AI / 前沿技术 ===
+  - name: "OpenAI Blog"
+    url: "https://openai.com/blog/rss.xml"
+    category: "ai-commerce"
+    filter_mode: "all"
+
+  # === 开发者工具 / 开源生态 ===
+  - name: "GitHub Blog"
+    url: "https://github.blog/feed/"
+    category: "dev-tools"
+    filter_mode: "all"
+
   - name: "Hacker News (frontpage)"
     url: "https://hnrss.org/frontpage"
     category: "dev-tools"
-    filter_mode: "keyword"  # keyword = 标题/摘要含关键词才保留
+    filter_mode: "keyword"
     keywords:
       - ecommerce
       - shopify
@@ -43,11 +54,7 @@ rss_sources:
       - cross-border
       - dropship
 
-  - name: "GitHub Blog"
-    url: "https://github.blog/feed/"
-    category: "dev-tools"
-    filter_mode: "all"  # 全量保留
-
+  # === 电商平台 / 行业媒体 ===
   - name: "TechCrunch"
     url: "https://techcrunch.com/feed/"
     category: "ai-commerce"
@@ -62,6 +69,24 @@ rss_sources:
       - amazon
       - stripe
 
+  - name: "Amazon Blog"
+    url: "https://blog.aboutamazon.com/feed"
+    category: "cross-border-tech"
+    filter_mode: "keyword"
+    keywords:
+      - ecommerce
+      - seller
+      - marketplace
+      - logistics
+      - AWS
+      - cloud
+
+  - name: "WooCommerce Dev Blog"
+    url: "https://developer.woocommerce.com/feed/"
+    category: "cross-border-tech"
+    filter_mode: "all"
+
+  # === 中文跨境媒体 ===
   - name: "36kr"
     url: "https://36kr.com/feed"
     category: "cross-border"
@@ -74,38 +99,12 @@ rss_sources:
       - 全球化
       - 独立站
 
-  - name: "OpenAI Blog"
-    url: "https://openai.com/blog/rss.xml"
-    category: "ai-commerce"
-    filter_mode: "all"
-
-  - name: "量子位"
-    url: "https://www.jiqizhixin.com/rss"
-    category: "ai-commerce"
-    filter_mode: "keyword"
-    keywords:
-      - 电商
-      - 零售
-      - 出海
-      - 跨境
-      - 商业化
-      - 应用
-
-  # === 新增核心源 ===
-  - name: "WooCommerce Dev Blog"
-    url: "https://developer.woocommerce.com/feed/"
-    category: "cross-border-tech"
-    filter_mode: "all"
-
-  # Shopify/Stripe RSS 已停用，二期用 web_scraper 替代
-  # - name: "Shopify Engineering Blog"
-  #   url: "https://shopify.engineering/feed"
-  # - name: "Stripe Blog"
-  #   url: "https://stripe.com/blog/feed/rss"
-
-  # 量子位 RSS 返回 HTML，暂不可用
-  # - name: "量子位"
-  #   url: "https://www.jiqizhixin.com/rss"
+  # === 预留（暂不可用，待二期爬虫）===
+  # Shopify Engineering: RSS 404
+  # Stripe Blog: RSS 404
+  # 亿邦动力: RSS 重定向
+  # 雨果网: XML 格式错误
+  # 量子位: XML 解析错误
 
 github_trending_sources:
   - name: "GitHub Trending (ecommerce)"
@@ -124,13 +123,12 @@ github_trending_sources:
     topic: "marketplace"
     category: "cross-border-tech"
 
-# 中文行业媒体（无 RSS，需要爬虫，一期先预留）
+  - name: "GitHub Trending (logistics)"
+    topic: "logistics"
+    category: "cross-border-tech"
+
+  - name: "GitHub Trending (dropshipping)"
+    topic: "dropshipping"
+    category: "cross-border-tech"
+
 web_sources: []
-  # - name: "雨果网"
-  #   url: "https://www.cifnews.com"
-  #   type: "scraper"
-  #   category: "cross-border"
-  # - name: "亿邦动力"
-  #   url: "https://www.ebrun.com"
-  #   type: "scraper"
-  #   category: "cross-border"
